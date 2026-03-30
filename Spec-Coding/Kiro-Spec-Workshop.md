@@ -18,13 +18,13 @@ This is a fully hands-on workshop. Through a series of exercises, you will desig
 **Login to Kiro**
 
 
-<img width="360" height="400" alt="Screenshot 2025-11-13 at 11 11 34 AM" src="https://github.com/user-attachments/assets/71931a48-515a-46a4-878c-73b4d987bb87" />
+<img width="360" height="400" alt="Screenshot 2025-11-13 at 11 11 34 AM" src="https://github.com/user-attachments/assets/71931a48-515a-46a4-878c-73b4d987bb87" />
 
 
 **Logout Kiro** 
 
 - Click account information from the left down corner 
-<img width="351" height="169" alt="Screenshot 2025-09-03 at 9 04 27 AM" src="https://github.com/user-attachments/assets/a004b61d-efcf-4159-bd1f-3d578db137e4" />
+<img width="351" height="169" alt="Screenshot 2025-09-03 at 9 04 27 AM" src="https://github.com/user-attachments/assets/a004b61d-efcf-4159-bd1f-3d578db137e4" />
 
 
 ### Create Project Folder
@@ -52,7 +52,22 @@ This is a fully hands-on workshop. Through a series of exercises, you will desig
 
 <img width="472" height="360" alt="image" src="https://github.com/user-attachments/assets/7a6f1648-f717-4e44-a29a-189d096a70d3" />
 
-##  🚀 Exercise 1 - Enable / Add MCP server in Kiro 
+##  🚀 Exercise 1 - Use Vibe Coding to create a Web base shooting game OR a e-commerce website 
+
+Web base shooting game
+```
+Please help me to build a web-based shooting game use keyboard control, including a quick instruction page
+
+```
+
+E-commerce website 
+
+```
+ Please help me to build a simple e-commerce website with three web pages, including Home page, Product page and Shopping Cart page
+
+```
+
+##  🚀 Exercise 2 - Enable / Add MCP server in Kiro 
 
 Model Context Protocol (MCP) extends Kiro's capabilities by connecting to specialized servers that provide additional tools and context. This guide helps you set up, configure, and use MCP servers with Kiro.
 
@@ -65,13 +80,18 @@ $ uv self version
 > If you didn't install it yet, please check [Astral](https://docs.astral.sh/uv/getting-started/installation) to install uv command.
 
 
-### 1.1 Click Enable / add more MCP server 
+### 2.1 Click Enable / add more MCP server 
 
 you can easily add MCP server via Kiro public [documentation](https://kiro.dev/docs/mcp/servers/#mcp-server-directory)  or use the following configuration
 
 <img width="368" height="268" alt="image" src="https://github.com/user-attachments/assets/0906b563-d0bf-4102-a0f8-332c7d277f97" />
 
 <!--- :warning: please make sure you have Context7 account and use your own  API-key with your own  https://context7.com/ --->
+
+> :warning:
+> The AWS Diagram MCP Server requires additional dependencies. Please install them before proceeding:
+> 1. Install Python 3.10+: `uv python install 3.10`
+> 2. Install GraphViz: https://www.graphviz.org/ (on macOS: `brew install graphviz`)
 
 
 ```
@@ -89,47 +109,62 @@ you can easily add MCP server via Kiro public [documentation](https://kiro.dev/d
       "command": "npx",
       "args": [
         "-y",
-        "@upstash/context7-mcp",
-        "--api-key",
-        "ctx7sk-56e70384-f5df-xxxx-xxxx-xxxxxxxx" 
+        "@upstash/context7-mcp"
       ],
       "env": {},
       "disabled": false,
       "autoApprove": []
     },
-    "web-search": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@brave/brave-search-mcp-server",
-        "--transport",
-        "stdio"
-      ],
-      "env": {
-        "BRAVE_API_KEY": "your-api-key"
-      },
-      "disabled": false,
-      "autoApprove": []
+    "awsknowledge": {
+      "type": "http",
+      "url": "https://knowledge-mcp.global.api.aws",
+      "disabled": false
     },
-    "aws-docs": {
+    "awslabs.aws-iac-mcp-server": {
       "command": "uvx",
       "args": [
-        "awslabs.aws-documentation-mcp-server@latest"
+        "awslabs.aws-iac-mcp-server@latest"
       ],
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       },
       "disabled": false,
       "autoApprove": []
+    },
+    "awslabs.aws-pricing-mcp-server": {
+      "command": "uvx",
+      "args": [
+        "awslabs.aws-pricing-mcp-server@latest"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": []
+    },
+    "awslabs.aws-diagram-mcp-server": {
+      "command": "uvx",
+      "args": [
+        "awslabs.aws-diagram-mcp-server"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "list_icons",
+        "generate_diagram",
+        "get_diagram_examples"
+      ]
     }
   }
 }
 
 ```
 
-## 🚀 Exercise 2 - Create your own Steering rule 
+## 🚀 Exercise 3 - Create your own Steering rule 
 
-### 2.1 Add your Development standards into 
+### 3.1 Add your Development standards into 
 
 
 <img width="908" height="669" alt="image" src="https://github.com/user-attachments/assets/3988dbdf-0be4-4e72-816b-4cbb5dcec145" />
@@ -196,36 +231,16 @@ inclusion: always
 
 ```
 
-##  🚀 Exercise 3 - Use Vibe Coding to create a Web base shooting game OR a e-commerce website 
-
-Web base shooting game
-```
-Please help me to build a web-based shooting game use keyboard control, including a quick instruction page
-
-```
-
-E-commerce website 
-```
- Please help me to build a simple e-commerce website with three web pages, including Home page, Product page and Shopping Cart page
-
-```
-##  🚀 Exercise 4 - Start a dev server and try it out 
-
-```
-Start the development server
-```
-
-
-##  🚀 Exercise 5 - Generate Steering document in Kiro 
+##  🚀 Exercise 4 - Generate Steering document in Kiro 
 
 Steering gives Kiro persistent knowledge about your project through markdown files in .kiro/steering/. Instead of explaining your conventions in every chat, steering files ensure Kiro consistently follows your established patterns, libraries, and standards.
 
-#### 5.1 Click Generate foundation steering files
+#### 4.1 Click Generate foundation steering files
 
-<img width="735" height="242" alt="Screenshot 2025-11-18 at 8 12 04 AM" src="https://github.com/user-attachments/assets/a676eca5-b4c7-4a6c-90b2-7bea0632489d" />
+<img width="735" height="242" alt="Screenshot 2025-11-18 at 8 12 04 AM" src="https://github.com/user-attachments/assets/a676eca5-b4c7-4a6c-90b2-7bea0632489d" />
 
 
-#### 5.2 Review the outputs markdown file from Agent Steering to make update if need
+#### 4.2 Review the outputs markdown file from Agent Steering to make update if need
 
 - Product Overview (product.md): Defines your product's purpose, target users, and business objectives
 
@@ -237,7 +252,7 @@ Steering gives Kiro persistent knowledge about your project through markdown fil
 
 
 
-##  🚀 Exercise 6 - Use Specs coding for more comprehensive implementation 
+##  🚀 Exercise 5 - Use Specs coding for more comprehensive implementation 
 
 
 Web base shooting game
@@ -281,96 +296,58 @@ The web application should be based on 3-tier architecture, including
 
 ```
 
-#### 6.1 Review the Requirements ( requirements.md ) provide by Kiro 
+#### 5.1 Review the Requirements ( requirements.md ) provide by Kiro 
 
 <img width="731" height="630" alt="image" src="https://github.com/user-attachments/assets/b024f8a0-5387-44a3-a9d8-b55adbf6362d" />
 
-#### 6.2 Move to Design phase and review design ( design.md )
+#### 5.2 Move to Design phase and review design ( design.md )
 <img width="635" height="434" alt="image" src="https://github.com/user-attachments/assets/87efa607-f6d5-4113-9102-037855d1dc6b" />
 
 
-#### 6.3 Start implementation plan , review the Tasklist ( tasks.md )
+#### 5.3 Start implementation plan , review the Tasklist ( tasks.md )
 <img width="611" height="418" alt="image" src="https://github.com/user-attachments/assets/e2446220-7e17-4e67-a53c-f182cf0f11aa" />
 
 
-#### 6.4 Start Task by click the :zap:
+#### 5.4 Start Task by click the :zap:
 
 <img width="568" height="332" alt="image" src="https://github.com/user-attachments/assets/3a3f912d-fe8d-4e63-b7d1-5ff21de23e4e" />
 
 
-### 7 Modify the mcp.json file to add the MCP server
+##  🚀 Exercise 6 - Add Deploy on AWS Skill in Kiro
 
-In this workshop, we will add: 
-- **AWS Documentation MCP Server**: This MCP server provides tools to access AWS documentation, search for content, and get recommendations.
-- **AWS Diagram MCP Server**: This MCP server that seamlessly creates diagrams using the Python diagrams package DSL. This server allows you to generate AWS diagrams, sequence diagrams, flow diagrams, and class diagrams using Python code.
-- **AWS CDK MCP Server**: MCP server for AWS Cloud Development Kit (CDK) best practices, infrastructure as code patterns, and security compliance with CDK Nag.
+Agent Plugins for AWS equip AI coding agents with skills to help you architect, deploy, and operate on AWS. The **Deploy on AWS** skill analyzes your codebase, recommends AWS services, estimates costs, generates Infrastructure as Code (CDK/CloudFormation), and guides you through deployment.
 
-For more AWS provided MCP, please refer this [document](https://awslabs.github.io/mcp/).
+For more information, please refer to the [Agent Plugins for AWS](https://github.com/awslabs/agent-plugins) repository.
 
+#### 6.1 Install the Deploy on AWS skill
+
+In Kiro, open the Skills panel and add the `deploy` skill from the [deploy-on-aws](https://github.com/awslabs/agent-plugins/tree/main/plugins/deploy-on-aws/skills/deploy) plugin in the `awslabs/agent-plugins` repository.
+
+#### 6.2 Verify the skill is active
+
+The skill triggers on phrases like: "deploy to AWS", "host on AWS", "run this on AWS", "AWS architecture", "estimate AWS cost", "generate infrastructure".
+
+Try asking Kiro:
 ```
-{
-  "mcpServers": {
-    "awslabs.aws-documentation-mcp-server": {
-      "command": "uvx",
-      "args": ["awslabs.aws-documentation-mcp-server@latest"],
-      "env": {
-        "FASTMCP_LOG_LEVEL": "ERROR",
-        "AWS_DOCUMENTATION_PARTITION": "aws"
-      },
-      "disabled": false,
-      "autoApprove": []
-    },
-    "awslabs.cdk-mcp-server": {
-      "command": "uvx",
-      "args": [
-        "awslabs.cdk-mcp-server@latest"
-      ],
-      "env": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      },
-      "disabled": false,
-      "autoApprove": [
-        "GetAwsSolutionsConstructPattern"
-      ]
-    },
-    "awslabs.aws-diagram-mcp-server": {
-      "command": "uvx",
-      "args": [
-        "awslabs.aws-diagram-mcp-server"
-      ],
-      "env": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      },
-      "disabled": false,
-      "autoApprove": [
-        "list_icons",
-        "list_icons",
-        "generate_diagram",
-        "get_diagram_examples",
-        "list_icons"
-      ]
-    }
-  }
-}
-
+Analyze my current application and recommend an AWS architecture for deployment
 ```
 
-##  🚀 Exercise 8 - Add Hooks in Kiro 
+##  🚀 Exercise 7 - Add Hooks in Kiro 
 
 Agent Hooks are powerful automation tools that streamline your development workflow by automatically executing predefined agent actions when specific events occur in your IDE. With hooks, you eliminate the need to manually request routine tasks and ensure consistency across your codebase.
 
-### 8.1 Click "+" on AGENT HOOKS to add new hooks
+### 7.1 Click "+" on AGENT HOOKS to add new hooks
 
 
 <img width="393" height="731" alt="image" src="https://github.com/user-attachments/assets/22af98c2-f7e8-470c-9cf6-ec695a711f30" />
 
 
-### 8.2 Describe the hook using natural language
+### 7.2 Describe the hook using natural language
 
 We want agent hooks to help us monitoring the CDK resource files change, and keep generating the AWS service diagram by using AWS Diagram MCP Server.
 
 ```
-1) Analyze the modified CDK files and generate or update AWS service architecture diagrams using the PPython diagrams package DSL.
+1) Analyze the modified CDK files and generate or update AWS service architecture diagrams using the Python diagrams package DSL.
 2) Parse the CDK code to identify AWS services, their relationships, and data flow. 
 3) If the previous diagram not exist, create a visual representation showing the infrastructure components, connections, and dependencies. Include proper grouping for VPCs, subnets, and logical service boundaries. 
 4) delete the previous diagram before create new one. Output the Python diagrams code that can be executed to generate the architecture diagram.
@@ -380,6 +357,7 @@ After the hook create complete and CDK resource files have change, you should se
 
 <img width="1620" height="2106" alt="image" src="https://github.com/user-attachments/assets/0d9e81dc-0ffd-4837-b768-7a852290538c" />
 
+<!--
 ##  🚀 Exercise 9 - Add a CDK Steering in workspace steering
 
 Create CDK_Best_Practices.md in steering with following contexts 
@@ -435,10 +413,11 @@ inclusion: always
 - Use `NodejsFunction` or `PythonFunction` whenever possible
 
 ```
+-->
 
 #### You can find more best practices from [here](https://github.com/awsdataarchitect/kiro-best-practices/tree/main/.kiro/steering)
 
-##  🚀 Exercise 10 - Create a new Spec for AWS enviroment deployment 
+##  🚀 Exercise 8 - Create a new Spec for AWS enviroment deployment 
 
 web-base shooting game 
 
@@ -459,7 +438,7 @@ I have a E-commerce website need to deploy to AWS Cloud. Create a comprehensive 
 4) Since we are in demo, please do not add any new feature for the application.
 ```
 
-## 🚀 Exercise 11 -  Cleanup and Resource Management
+## 🚀 Exercise 9 -  Cleanup and Resource Management
 
 ```
 Create and execute cleanup procedures:
@@ -470,6 +449,5 @@ Create and execute cleanup procedures:
 - Document any persistent data that needs backup
 - Create re-deployment procedures for future use
 ```
-
 
 
